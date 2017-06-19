@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Decryptonator!</title>
+    <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript" src="FileSaver.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Allan|Raleway" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+    <div class="content">
+      <h1>The Decryptonator!!</h1>
+      <p>Welcome to Decryptonator!! The WORST decryption site on the internet. No, seriously. It's bad. If you have super secret messages you want to decrypt, you won't be able to do that here. But, if you want to put in a bunch of letters and receive a different bunch of letters, this is the place to be! **</p>
+      
+      <h2>This is the text you hope we can decrypt.</h2>
+      <div id="encodetext"></div>
+      <br> 
+      <h2>This should be your decryption...  Sorry about that!</h2>
+      <div id="decodedtext"></div>
+      <br>
+
+      <button id="save-btn">Download Decryption</button>
+
+      <p>** See, the thing is, I know nothing about cryptography. I did a standard letter swap, but it is failing miserably. I guess this is why I'm a software developer, not a cryptanalyst. I might continue to play with it to make it better, but at this point, I'm out of time. Sorry!</p> 
+    </div>
+
+    <script type ="text/javascript">
+        display();
+        function display(){
+            document.getElementById('encodetext').innerHTML = encodedMessage;
+            document.getElementById('decodedtext').innerHTML = decodedMessage;
+        };
+    </script>
+
+    <script type="text/javascript">
+
+      document.getElementById('save-btn').onclick = function() {
+        var blob = new Blob([decodedMessage], {type: "text/plain;charset=utf-8"});
+          saveAs(blob, "decryptedfile.txt");
+      }
+
+    </script>
+    
+  </body>
+</html>
